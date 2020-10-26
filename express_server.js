@@ -3,7 +3,11 @@ const { createServer } = require("http");
 const server = express();
 
 server.get("/", (req, res) => {
-    res.send("<h1>Hello from nodejs</h1>")
+    res.sendFile(__dirname + "/index.html");
+});
+
+server.get("/about", (req, res) => {
+    res.sendFile(__dirname + "/about.html");
 });
 
 server.listen(3000, (err) => {
