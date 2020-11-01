@@ -13,7 +13,9 @@ server.set("view engine", "hbs");
 server.use(express.static(__dirname + "/public"));
 
 server.get("/", (req, res)=>{
-    res.render("home");
+    res.render("home", {
+        message: "Hello from node.js",
+    });
 });
 
 server.listen(3000, (err) => {
