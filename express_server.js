@@ -18,6 +18,17 @@ server.get("/", (req, res)=>{
     });
 });
 
+server.get("/add", (req, res)=>{
+    res.render("add");
+});
+
+server.get("/quiz", (req, res)=>{
+    res.render("quiz");
+});
+
+server.use((req, res)=>{
+    res.render("404");
+})
 server.listen(3000, (err) => {
     if(err) return console.log(err);
     console.log("The server is listening on 3000 port!");
