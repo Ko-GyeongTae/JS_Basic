@@ -13,17 +13,17 @@ server.set("view engine", "hbs");
 server.use(express.static(__dirname + "/public"));
 
 server.get("/", (req, res)=>{
-    res.render("home", {
+    res.render("partials/home", {
         message: "Hello from node.js",
     });
 });
 
 server.get("/add", (req, res)=>{
-    res.render("add");
+    res.render("partials/add");
 });
 
 server.get("/quiz", (req, res)=>{
-    res.render("quiz");
+    res.render("partials/quiz");
 });
 
 server.use((req, res)=>{
