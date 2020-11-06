@@ -1,6 +1,7 @@
 const express = require("express");
 const { createServer } = require("http");
 const hbs = require('express-handlebars');
+const bodyParser = require('body-parser');
 const server = express();
 const words = require("./db/words.json");
 
@@ -12,6 +13,7 @@ server.engine("hbs", hbs({
 );
 server.set("view engine", "hbs");
 server.use(express.static(__dirname + "/public"));
+server.use(bodyParser.urlencoded({ extended: false }));
 
 server.get("/", (req, res)=>{
     res.render("partials/home", {
@@ -19,8 +21,13 @@ server.get("/", (req, res)=>{
     });
 });
 server.post("/", (req, res)=>{
-    console.log("A request has been received.");
-})
+    const { query } = req.body;
+    res.render("partials/home", {
+        words: words.filter((w) =>
+            w.word.toLowerCase().includes(query.toLowerCase())
+        ),
+    });
+});
 server.get("/add", (req, res)=>{
     res.render("partials/add");
 });

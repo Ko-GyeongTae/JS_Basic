@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "brew": "^0.0.8",
     "err": "^2.1.12",
     "express": "^4.17.1",
