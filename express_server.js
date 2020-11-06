@@ -18,7 +18,9 @@ server.get("/", (req, res)=>{
         words,
     });
 });
-
+server.post("/", (req, res)=>{
+    console.log("A request has been received.");
+})
 server.get("/add", (req, res)=>{
     res.render("partials/add");
 });
