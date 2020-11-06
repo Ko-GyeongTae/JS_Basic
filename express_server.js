@@ -2,6 +2,7 @@ const express = require("express");
 const { createServer } = require("http");
 const hbs = require('express-handlebars');
 const server = express();
+const words = require("./db/words.json");
 
 server.engine("hbs", hbs({
         extname:"hbs",
@@ -14,7 +15,7 @@ server.use(express.static(__dirname + "/public"));
 
 server.get("/", (req, res)=>{
     res.render("partials/home", {
-        message: "Hello from node.js",
+        words,
     });
 });
 
