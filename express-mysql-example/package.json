@@ -1,18 +1,8 @@
 {
-  "name": "js_basic",
+  "name": "express-mysql-example",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "brew": "^0.0.8",
-    "err": "^2.1.12",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "fs": "^0.0.1-security",
-    "mysql": "^2.18.1"
-  },
-  "devDependencies": {},
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Ko-GyeongTae/JS_Basic.git"
   },
-  "author": "",
+  "author": "Ko-Gyeongtae",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Ko-GyeongTae/JS_Basic/issues"
