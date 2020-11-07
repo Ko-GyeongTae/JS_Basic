@@ -43,18 +43,3 @@ server.listen(3000, (err) => {
     if(err) return console.log(err);
     console.log("The server is listening on 3000 port!");
 });
-
-
-/*
-server.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
-});
-
-server.get("/about", (req, res) => {
-    res.sendFile(__dirname + "/about.html");
-});
-
-server.use((req, res)=>{
-    res.sendFile(__dirname + "/404.html");
-});
-*/
