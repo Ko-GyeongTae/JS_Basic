@@ -3,7 +3,7 @@ const { createServer } = require("http");
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const server = express();
-const words = require("./db/words.json");
+let words = require("./db/words.json");
 
 server.engine("hbs", hbs({
         extname:"hbs",
@@ -20,6 +20,7 @@ server.get("/", (req, res)=>{
         words,
     });
 });
+
 server.post("/", (req, res)=>{
     const { query } = req.body;
     res.render("partials/home", {
@@ -28,6 +29,13 @@ server.post("/", (req, res)=>{
         ),
     });
 });
+
+server.delete("/", (req, res) => {
+    console.log(req.body);
+    let {word} = req.body;
+    words = words.filter(w=>!(w.word == word));
+});
+
 server.get("/add", (req, res)=>{
     res.render("partials/add");
 });
@@ -38,7 +46,8 @@ server.get("/quiz", (req, res)=>{
 
 server.use((req, res)=>{
     res.render("404");
-})
+});
+
 server.listen(3000, (err) => {
     if(err) return console.log(err);
     console.log("The server is listening on 3000 port!");
